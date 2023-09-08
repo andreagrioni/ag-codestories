@@ -1,0 +1,390 @@
+---
+title: Explore Variance Partition for QC analysis
+author: "Andrea Grioni"
+---
+
+## Description
+
+*Package Name:* variancePartition
+
+Description: variancePartition is an R package that provides a comprehensive framework for dissecting and quantifying the sources of variation in high-dimensional biological data, such as gene expression data. It allows researchers to partition the total variation in their data into different components, including biological, technical, and batch effects. This partitioning is essential for identifying and characterizing the true biological signals within noisy datasets.
+
+*Key Features:*
+
+*Partitioning Variance:* The package offers various statistical methods for partitioning the total variance in genomic data into biologically meaningful components. It helps users distinguish between factors like biological variability, technical noise, and batch effects.
+Flexible Modeling: Users can specify and fit complex linear models to their data, which can incorporate multiple covariates and factors of interest. This flexibility enables researchers to account for various sources of variability.
+Visualization: variancePartition provides tools for visualizing the partitioned variance, making it easier to interpret the results and identify sources of variation.
+
+*Statistical Testing:* Researchers can perform hypothesis tests to assess the significance of different variance components, allowing them to determine which factors have a significant impact on the observed variation.
+Integration with Other Packages: The package is often used in conjunction with other bioinformatics and genomics packages, making it a valuable component of the data analysis pipeline in genomic studies.
+Typical Use Cases:
+
+*Differential expression analysis:* Identifying genes or features that are differentially expressed across conditions while accounting for various sources of variation.
+
+*Quality control:* Assessing the quality of genomic datasets and identifying potential batch effects.
+
+*Multi-omics integration:* Integrating data from multiple omics platforms (e.g., RNA-seq, ChIP-seq) and disentangling their sources of variation.
+
+[Link](https://bioconductor.org/packages/release/bioc/html/variancePartition.html)
+
+## Set Libraries
+
+```{r}
+#| message: false
+
+library(variancePartition)
+library(SummarizedExperiment)
+library(dplyr)
+```
+
+## Set Paths
+
+Set path to data.
+
+```{r}
+dataset_path <- "/clscratch/grionan1/somapp_demo/MHV370A12201_test/data/inter/preprocess/BILSY.se.somapp.rds"
+```
+
+## Load Data
+
+Load somapp object and store in variable `somapp`.
+
+```{r}
+somapp <- base::readRDS(dataset_path)
+```
+
+## Extract log2 SomaScan and metadata from `somapp`
+
+```{r}
+metadata <- colData(somapp) |> as.data.frame()
+somascan <- assays(somapp)$sscanSetNorm_log2
+```
+
+## prepare metadata
+
+```{r}
+metadata_fct <- metadata |>
+    mutate(
+      ARMCD = factor(
+        ARMCD, 
+        levels = c("PLAC", "MHV370")
+        ),
+      ARMCDN = dplyr::if_else(
+        ARMCD == "PLAC", 0, 1
+      ),
+      VISITN = recode(VISIT, !!! c("100" = 0, "120" = 4, "140" = 12, "170" = 24)),
+      VISIT = factor(
+        VISIT,
+        levels = c("100", "120", "140", "170")
+      ),
+      ARMCD_VISIT = interaction(ARMCDN, VISITN),
+      SITEID = paste0("SITEID", SITEID, sep = "")
+    )
+# split by disease
+datasets <- split(metadata_fct, metadata_fct$DISEASE)
+names(datasets) <- c("mctd", "sjd")
+```
+
+Split somascan into two datasets based on the DISEASE group.
+
+```{r}
+somascan_fltr <-  list(
+  "sjd" = somascan[ , datasets$sjd$io_id], 
+  "mctd" = somascan[ , datasets$mctd$io_id]
+  )
+```
+
+## Remove Protiens with low Variation
+
+It will remove features that show little variation, so we do not have to run a model for them and it will reduce computational time.
+
+```{r}
+somascan_fltr <- lapply(
+  somascan_fltr,
+  function(somascan) {
+    # threshold
+    sds_thr <- 0.3
+    # calculated standard deviation
+    sds <- apply(somascan, 1, sd)
+    # remove low variance features
+    nzv <- which(sds < sds_thr)
+    somascan[ -nzv , ]
+  }
+)
+# print dim for sjd
+dim(somascan_fltr$sjd)
+# print dim for mctd
+dim(somascan_fltr$mctd)
+```
+
+## Make analysis
+
+First we define a formula with all possible covariates; then, covariates that have no contribute to the dataset variation can be removed to define the final model.
+
+```{r}
+my_formula <- c(
+  "sjd" = ~ ARMCDN*VISITN + (1|USUBJID) + (1|PlateId) + (1|SITEID) + (1|RACE),
+  "mctd" = ~ ARMCDN*VISITN + AGE + (1|USUBJID)
+  )
+```
+
+Run the model.
+
+```{r}
+#| cache: true
+
+varPart <- lapply(
+  names(somascan_fltr),
+  function(disease) {
+    tryCatch(
+      {
+        fitExtractVarPartModel(
+          somascan_fltr[[disease]], 
+          my_formula[[disease]], 
+          datasets[[disease]]
+        )
+      },
+      error = function(e) {
+        # Handle the error (you can log it, print a message, or do nothing)
+        # For example, you can print an error message:
+        cat("Error in processing disease:", disease, "\n")
+        return(NULL)  # Return a value or NULL depending on your needs
+      }
+    )
+  }
+)
+names(varPart) <- names(somascan_fltr)
+```
+
+Generate the violin plot to represent variation in the first model. 
+
+The first figure is SjD dataset; according to the figure, `USUBJID`, `AGE`, `SITEID` and partially `ARMCD` mainly contributes to the variation of the dataset. Instead, `VISIT`, `PlateId` and `RACE` do not contribute to the variation of the dataset.
+
+```{r}
+p <- plotVarPart(varPart[["sjd"]]) + ggplot2::ggtitle(glue::glue("disease sjd"))
+
+p |> ggplot2::ggsave(filename = "./figure1.sjd.png")
+
+p
+```
+
+The second figure is the analysis on the MCTD dataset. In this case, most of the variation is driven by `AGE`, and there is some contribution from `ARMCD` and `USUBJID`. However, the `VISIT` and the interaction between `ARMCD` and `VISIT` do not explain much of the dataset variability.
+
+```{r}
+p <- plotVarPart(varPart[["mctd"]]) + ggplot2::ggtitle(glue::glue("disease mctd"))
+
+p |> ggplot2::ggsave(filename = "./figure1.mctd.png")
+
+p
+```
+
+Assert correlation between covariates in SjD Group. It shows that `RACE` is associated with `SITEID`.
+
+```{r}
+#| message: false
+#| error: false
+#| warning: false
+
+# formula
+my_formula <- "~ AGE + USUBJID + ARMCD + PlateId + VISIT + ARMCD:VISIT + SITEID + RACE"
+# 
+C = canCorPairs( my_formula, datasets$sjd)
+# Plot correlation matrix
+plotCorrMatrix( C )
+```
+
+Assert correlation between covariates in MCTD Group. It shows that `RACE` is associated with `SITEID`.
+
+```{r}
+# formula
+my_formula <- "~ AGE + USUBJID + ARMCD + VISIT + ARMCD:VISIT + SITEID"
+# 
+C = canCorPairs( my_formula, datasets$mctd)
+# Plot correlation matrix
+plotCorrMatrix( C )
+```
+
+Re-run the final model with only meaningful covariates. We remove `PlateId` and `RACE` because they do not contribute to the variation.
+
+```{r}
+final_formulas <- c(
+    "sjd" = ~ ARMCDN*VISITN + (1|USUBJID) + (1|SITEID),
+  "mctd" = ~ ARMCDN*VISITN + (1|USUBJID) + AGE
+)
+```
+
+Run the model on SjD samples.
+
+```{r}
+#| cache: true
+
+varPart_final <- lapply(
+  names(somascan_fltr),
+  function(disease) {
+    tryCatch(
+      {
+        fitExtractVarPartModel(
+          somascan_fltr[[disease]], 
+          final_formulas[[disease]], 
+          datasets[[disease]]
+        )
+      },
+      error = function(e) {
+        # Handle the error (you can log it, print a message, or do nothing)
+        # For example, you can print an error message:
+        cat("Error in processing disease:", disease, "\n")
+        return(NULL)  # Return a value or NULL depending on your needs
+      }
+    )
+  }
+)
+names(varPart_final) <- names(somascan_fltr)
+```
+
+Running the model with less variables confirms the previous findings.
+
+In the SjD dataset, most of the variation is driven by `SUBJID`.
+
+```{r}
+p2 <- plotVarPart(varPart_final[["sjd"]]) + ggplot2::ggtitle(glue::glue("disease sjd"))
+
+p2 |> ggplot2::ggsave(filename="figure2_sjd.png")
+
+p2
+```
+
+In the MCDT dataset, most of the variation is driven by `AGE`.
+
+```{r}
+p2 <- plotVarPart(varPart_final[["mctd"]]) + ggplot2::ggtitle(glue::glue("disease mctd"))
+
+p2 |> ggplot2::ggsave(filename="figure2_mctd.png")
+
+p2
+```
+
+## Results
+
+This code will Retrieve results for both dataset.
+
+In the SjD dataset, we sort results by `USUBJID` since it is the main driver of variability.
+
+```{r}
+# sjd
+sjd_results <- varPart_final[["sjd"]]
+# sorted by ARMCD
+sjd_results <- (sjd_results[order(sjd_results$`ARMCDN:VISITN`, decreasing=TRUE),])
+```
+
+In the MCDT dataset, we sort results by `ARMCD` to better undersand if there is a global effect of the treatment regardless of time-points; we know that the interaction between `ARMCD` and `VISIT` does not contribute to the dataset variability, and therefore the treatment over time as no effect on the population.
+
+```{r}
+# mctd
+mctd_results <- varPart_final[["mctd"]]
+# sorted by ARMCD
+mctd_results <- (mctd_results[order(mctd_results$`ARMCDN:VISITN`, decreasing=TRUE),])
+```
+
+rename seqids to gene for easy interpretation.
+
+make a vector to map seqids to protein names.
+
+```{r}
+annotation <- somapp@elementMetadata |> as.data.frame()
+annotation$EntrezGeneSymbol <- make.unique(annotation$EntrezGeneSymbol)
+seq2gene <- annotation |> 
+  dplyr::select(SeqId, EntrezGeneSymbol) |> 
+  mutate(
+    alt_name = paste(SeqId, EntrezGeneSymbol, sep = "_")
+  ) |>
+  dplyr::select(-EntrezGeneSymbol) |>
+  tibble::deframe()
+```
+
+rename rows in results dataframes.
+
+```{r}
+rownames(sjd_results) <- dplyr::recode(rownames(sjd_results), !!!seq2gene)
+rownames(mctd_results) <- dplyr::recode(rownames(mctd_results), !!!seq2gene)
+```
+
+Plot top 10 genes were ARMCD variance explain.
+
+In the SjD dataset, printing the top 10 genes sorting variability explained by USUBJID.
+
+```{r}
+plotPercentBars(sjd_results[1:10,])
+```
+
+In the MCTD dataset, it is clear that `ARMCD` drives most of the variability for many proteins.
+
+```{r}
+plotPercentBars(mctd_results[1:10,])
+```
+
+Generate plots for top 10 genes where ARMCD has the highers variance.
+
+```{r}
+# retrieve top 10
+
+generate_plots <- function(results, somascan_data, metadata, variable, n=10, ...) {
+  # arrange by variable
+  results <- results |>
+    arrange(desc(variable))
+  # retrienve rownames and split
+  # into seq and target
+  targets <- results[1:n,] |> 
+    rownames() |> 
+    stringr::str_split(
+      "_", 
+      simplify = TRUE
+      ) |>
+    as.data.frame() |>
+    tibble::deframe()
+  # get expression from somascan data
+  lapply(names(targets), function(seqid) {
+    # add aptamer RFU to metadata
+    metadata$RFU <- somascan_data[seqid, ]
+    # plot expression stratified by VISIT
+    ggpubr::ggboxplot(
+      metadata,
+      x="VISIT",
+      y="RFU",
+      title = glue::glue("{seqid} {targets[[seqid]]}"),
+      group = "ARMCD",
+      color = "ARMCD",
+      add = "jitter"
+    )
+  })
+}
+```
+
+generate boxplots for mctd. Here, we can speculate that the variability identified in the `ARMCD` is not really due to the treatment, but mainly because treatment group were different at baseline. However, we need to consider that we are working with a very low sample size (N=2 for each group).
+
+```{r}
+# run function
+generate_plots(
+  results = mctd_results, 
+  somascan_data = somascan_fltr$mctd, 
+  metadata = datasets$mctd, 
+  variable = "ARMCDN:VISITN", 
+  n = 6,
+  x.labels = TRUE,
+  sort = FALSE
+  )
+```
+
+generate boxplots for sjd. Here, the plots confirm that there is no change over time upon treatment.
+
+```{r}
+# run function
+generate_plots(
+  results = sjd_results, 
+  somascan_data = somascan_fltr$sjd, 
+  metadata = datasets$sjd, 
+  variable = "ARMCDN:VISITN", 
+  n = 6,
+  x.labels = TRUE,
+  sort = FALSE
+  )
+```
