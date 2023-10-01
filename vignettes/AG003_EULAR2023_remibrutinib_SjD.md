@@ -1,4 +1,4 @@
-# EULAR2023 Spotlight: Molecular Discoveries from the Phase 2 Clinical Trial of Remibrutinib in Sjögren’s Syndrome”
+# EULAR2023 Spotlight: Molecular Discoveries from the Phase 2 Clinical Trial of Remibrutinib in Sjögren’s Syndrome
 
 ![EULAR2023](img/ag003_img001.jpeg)
 
