@@ -3,7 +3,7 @@ title: "Mastering Single Cell RNA-Seq with Dreamlet"
 subtitle: "Leveraging Linear Mixed Effect Models for In-depth Gene Expression Insights"
 author: "Andrea Grioni"
 date: 2023/10/01
-output: markdown_github
+format: gfm
 ---
 
 ## Dreamlet: A Powerful Tool for Single Cell RNA-Seq Analysis with Linear Mixed Effect Models
@@ -124,7 +124,8 @@ df |>
     include = c(Dx, sex, age),
     by = Dx
   ) |>
-  add_p()
+  add_p() |>
+   as_kable()
 ```
 
 First, create a contingency table and then perform a Chi-squared test. This test aims to ascertain if there's a notable link between gender (Male/Female) and the treatment group (Control/AD). The null hypothesis posits no association between the two variables, while the alternative hypothesis assumes a connection.
