@@ -3,5 +3,5 @@
 .RData
 .Ruserdata
 rsconnect
-*.html
 .vscode
+*html
