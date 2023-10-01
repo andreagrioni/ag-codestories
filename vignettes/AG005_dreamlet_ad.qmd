@@ -86,7 +86,7 @@ library(SingleCellExperiment)
 ```{r}
 #| label: load data
 
-scRNA_path <- "/Users/agrioni/Desktop/project/ag-codestories/data/scRNA/PsychAD_r0_Dec_28_2022_pseudobulk.RDS"
+scRNA_path <- "../data/scRNA/PsychAD_r0_Dec_28_2022_pseudobulk.RDS"
 pb <- base::readRDS(scRNA_path)
 ```
 
@@ -400,7 +400,7 @@ In summary, this formula provides a comprehensive framework for normalization, t
 #| echo: FALSE
 
 # load preprocessed data
-res.proc <- readRDS("/Users/agrioni/Desktop/project/ag-codestories/res.proc.RDS")
+res.proc <- readRDS("../data/scRNA/res.proc.RDS")
 ```
 
 ```{r}
@@ -445,7 +445,7 @@ colData(res.proc)$Sex <- ifelse(colData(res.proc)$Sex == "Male", 0, 1)
 ```{r}
 #| label: load res.vp.RDS
 #| echo: FALSE
-res.vp <- readRDS("/Users/agrioni/Desktop/project/ag-codestories/res.vp.RDS")
+res.vp <- readRDS("../data/scRNA/res.vp.RDS")
 ```
 
 ```{r}
@@ -544,7 +544,7 @@ In this example, we are interested in comparing the control and disease groups t
 #| label: load pre-computed models
 #| echo: FALSE
 #| eval: TRUE
-fit <- readRDS("/Users/agrioni/Desktop/project/ag-codestories/fit.RDS")
+fit <- readRDS("../data/scRNA/fit.RDS")
 ```
 
 ```{r dreamlet}
