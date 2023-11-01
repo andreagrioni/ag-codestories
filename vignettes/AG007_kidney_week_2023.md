@@ -61,3 +61,7 @@ Recognized as the world’s premier nephrology gathering, ASN Kidney Week offers
 
 More information [here](https://www.asn-online.org/education/kidneyweek/2023/meeting-overview.aspx)
 
+---
+
+## Author Notes
+In this article, I’ve provided an overview of nephrology, with a particular focus on IgA Nephropathy, and highlighted the significance of the upcoming ASN Kidney Week 2023. While the insights shared are rooted in scientific studies and open datasets available to the public, it’s crucial to emphasize that they are utilized here purely as illustrative examples and are not directly affiliated with any specific research institution or company. Your feedback and comments are highly valued. For additional information or to connect with me, please visit my [personal page](https://andreagrioni.github.io).
