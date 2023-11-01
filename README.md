@@ -1,5 +1,9 @@
 # ag-codestories
 
+20231101
+
+[Nephrology: The Study of Kidneys and Kidney Week 2023](./vignettes/AG007_kidney_week_2023.md)
+
 20231005
 
 [Dreamlet: A Powerful Tool for Single Cell RNA-Seq Analysis with Linear Mixed Effect Models](./vignettes/AG005_dreamlet_ad.md)
