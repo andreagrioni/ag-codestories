@@ -1,5 +1,9 @@
 # ag-codestories
 
+20231102
+
+[IgA Nephropathy (IgAN) and the Promise of Iptacopan: Insights from a Phase 2 Clinical Trial](./vignettes/AG008_LNP023_IgAN.md)
+
 20231101
 
 [Nephrology: The Study of Kidneys and Kidney Week 2023](./vignettes/AG007_kidney_week_2023.md)
