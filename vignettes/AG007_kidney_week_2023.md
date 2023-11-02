@@ -1,6 +1,6 @@
 # Nephrology: The Study of Kidneys and Kidney Week 2023
 
-![](./img/ag006_img001.png)
+![](./img/ag007_img001.png)
 
 ## Introduction to Nephrology
 Originating from the ancient Greek word 'nephros' meaning kidney, nephrology is a specialized medical discipline dedicated to the diagnosis, treatment, and management of kidney diseases. This field covers a spectrum of conditions, from acute kidney injuries to chronic kidney diseases, delving into the kidney's anatomy, physiology, and related disorders.
@@ -29,7 +29,7 @@ Elevating awareness about kidney diseases is not just essential—it's imperativ
 
 ## Zooming into IgA Nephropathy (IgAN)
 
-![](./img/ag006_img002.png)
+![](./img/ag007_img002.png)
 
 ------------------------------------------------------------------------
 
