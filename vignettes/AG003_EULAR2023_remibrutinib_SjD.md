@@ -1,5 +1,7 @@
 # EULAR2023 Spotlight: Molecular Discoveries from the Phase 2 Clinical Trial of Remibrutinib in Sjögren’s Syndrome
 
+<mark > UPDATE 20231108:</mark> This work was published as part of a larger clinical paper [Efficacy and safety of remibrutinib, a selective potent oral BTK inhibitor, in Sjögren's syndrome: results from a randomised, double-blind, placebo-controlled phase 2 trial](https://doi.org/10.1136/ard-2023-224691).
+
 ![EULAR2023](img/ag003_img001.jpeg)
 
 I’m excited to share the findings from our recent poster presentation at the [EULAR2023 conference](https://www.eular.org)! Our research focused on the exploratory biomarker analysis conducted on the remibrutinib Phase 2 clinical trial (LOUiSSE) in Sjögren’s syndrome (SjS).
