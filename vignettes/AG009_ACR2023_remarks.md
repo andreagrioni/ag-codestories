@@ -19,3 +19,9 @@ The American College of Rheumatology Conference was a seminal event in rheumatol
 
 **Acknowledgments:**  
 I extend my heartfelt thanks to the team who represented our work at the conference, showcasing our dedication and collective efforts in rheumatology research.
+
+**Disclaimer:**
+This blog post is intended for informational purposes only and should not be considered as medical advice. Always consult with a healthcare professional for medical advice and treatment options.
+
+**Author Notes:**
+In this post, I've provided a brief overview of the research I've been a part of at Novartis Biomedical Research. The information shared is derived from scientific studies that are publicly accessible and have been published in reputable journals. I welcome any feedback or comments you may have. For further inquiries or to get in touch, please visit my [personal page](https://andreagrioni.github.io).
