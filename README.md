@@ -1,5 +1,9 @@
 # ag-codestories
 
+20231115 
+
+[Highlights from the American College of Rheumatology Conference](./vignettes/AG009_ACR2023_remarks.md)
+
 20231102
 
 [IgA Nephropathy (IgAN) and the Promise of Iptacopan: Insights from a Phase 2 Clinical Trial](./vignettes/AG008_LNP023_IgAN.md)
