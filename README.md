@@ -2,7 +2,7 @@
 
 20240519
 
-[Introduction to Atherosclerosis and the PCSK9 Inhibitors Leqvio](./vignettes/AG010_intro_atherosclerosis_leqvio.md)
+[Introduction to Atherosclerosis and PCSK9 Inhibitor Leqvio](./vignettes/AG010_intro_atherosclerosis_leqvio.md)
 
 20231115 
 
