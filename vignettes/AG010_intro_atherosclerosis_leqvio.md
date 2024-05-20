@@ -1,4 +1,6 @@
-# Introduction to Atherosclerosis and the PCSK9 Inhibitors Leqvio
+# Introduction to Atherosclerosis and PCSK9 Inhibitor Leqvio
+
+Atherosclerosis is a leading cause of cardiovascular diseases worldwide. Understanding its pathophysiology and exploring innovative treatment options like PCSK9 inhibitors are crucial for advancing cardiovascular health.
 
 ## Pathophysiology of Atherosclerosis
 
@@ -48,11 +50,12 @@ Leqvio is owned by Novartis, a leading global healthcare company that is dedicat
 
 ## Author's Note
 
-In this article, I've delved deep into the realm of cardiovascular disease, with a spotlight on atherosclerosis and the innovative approach of PCSK9 inhibition. The insights presented are grounded in scientific studies and publicly accessible datasets. This is the result of the collective efforts of many, from public institutions to Novartis, and it reflects the dedication of these individuals to develop and bring efficacious drugs to the market for the benefit of all patients. Your feedback and thoughts are immensely appreciated. For further details or to get in touch with me, please visit my [personal page](https://andreagrioni.github.io).
+In this article, I've looked into the realm of cardiovascular disease, with a spotlight on atherosclerosis and the innovative approach of PCSK9 inhibition. The insights presented are grounded in scientific studies and publicly accessible datasets. This is the result of the collective efforts of many, from public institutions to Novartis, and it reflects the dedication of these individuals to develop and bring efficacious drugs to the market for the benefit of all patients. Your feedback and thoughts are immensely appreciated. For further details or to get in touch with me, please visit my [personal page](https://andreagrioni.github.io).
 
 ## References and Literature
 
 For those interested in further details, here are some key references:
+
 1. Libby, P., Buring, J. E., Badimon, L., Hansson, G. K., Deanfield, J., Bittencourt, M. S., Tokgözoğlu, L., & Lewis, E. F. (2019). Atherosclerosis. Nature Reviews Disease Primers, 5(56). https://doi.org/10.1038/s41572-019-0106-z
 2. Roth, E. M., & Davidson, M. H. (2018). PCSK9 Inhibitors: Mechanism of Action, Efficacy, and Safety. Reviews in Cardiovascular Medicine, 19(S1), 31-46. https://doi.org/10.3909/ricm19S1S0002
 3. German, C. A., & Shapiro, M. D. (2019). Small Interfering RNA Therapeutic Inclisiran: A New Approach to Targeting PCSK9. BioDrugs. https://doi.org/10.1007/s40259-019-00399-6
