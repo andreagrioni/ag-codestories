@@ -1,4 +1,4 @@
-# Introduction to Atherosclerosis and PCSK9 Inhibitor Leqvio
+# Introduction to Atherosclerosis and PCSK9 Inhibitors
 
 Atherosclerosis is a leading cause of cardiovascular diseases worldwide. Understanding its pathophysiology and exploring innovative treatment options like PCSK9 inhibitors are crucial for advancing cardiovascular health.
 
