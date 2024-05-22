@@ -28,29 +28,15 @@ However, when PCSK9 attaches to an LDL receptor, it prevents the receptor from r
   <i>Figure2: PCSK9 inhibitions of LDL receptors.</i>
 </p>
 
-Leqvio (inclisiran) is a novel therapeutic that targets the PCSK9 gene. It works by inhibiting PCSK9, leading to increased LDL receptor availability and enhanced clearance of LDL-C from the blood. Clinical trials have shown that Leqvio significantly lowers LDL-C levels and may provide substantial cardiovascular benefits. By integrating PCSK9 inhibition into treatment regimens, we can offer new hope for patients struggling with high cholesterol and atherosclerosis, potentially reducing the global burden of cardiovascular diseases.
+Therapies that target the PCSK9 gene represent a novel approach in the management of high cholesterol. These therapies work by inhibiting PCSK9, leading to increased LDL receptor availability and enhanced clearance of LDL-C from the blood. Evidence from clinical research suggests that such treatments can significantly lower LDL-C levels and may provide substantial cardiovascular benefits. By integrating PCSK9 inhibition into treatment regimens, we can offer new hope for patients struggling with high cholesterol and atherosclerosis, potentially reducing the global burden of cardiovascular diseases.
 
-## Understanding Leqvio
+## Disclaimer
 
-Inclisiran represents a novel approach in cholesterol management, utilizing small interfering RNA (siRNA) to target PCSK9. Unlike monoclonal antibodies such as alirocumab and evolocumab, which inhibit PCSK9 extracellularly by binding to it in the bloodstream, inclisiran works intracellularly. It prevents the translation of PCSK9 messenger RNA (mRNA), effectively reducing the synthesis of PCSK9 within liver cells. This mechanism leads to decreased levels of PCSK9 protein, thereby increasing the number of LDL receptors available to clear LDL cholesterol (LDL-C) from the bloodstream.
-
-The ORION clinical development program has extensively studied inclisiran in various phases of clinical trials. Key studies include ORION-1, ORION-9, and ORION-11. ORION-1, a phase II trial, showed that inclisiran could reduce LDL-C levels by 50% or more with effects lasting for up to six months after a single injection. The ORION-9 trial focused on patients with heterozygous familial hypercholesterolemia (HeFH) and demonstrated similar efficacy. ORION-11 included patients with atherosclerotic cardiovascular disease (ASCVD) and also showed significant LDL-C reductions with biannual dosing.
-
-These trials have shown that inclisiran's siRNA mechanism provides a durable and potent reduction in LDL-C, similar to that achieved with monoclonal antibodies but with less frequent dosing. Patients can receive inclisiran injections every six months, which improves adherence and convenience compared to the biweekly or monthly injections required by monoclonal antibodies.
-
-Inclisiran's unique mechanism of action involves its conjugation to triantennary N-acetylgalactosamine (GalNAc), which facilitates its targeted delivery to liver cells. This targeted approach enhances the drug's efficacy and reduces the likelihood of off-target effects. The reduced PCSK9 levels lead to an increase in LDL receptor recycling, enhancing the liver's ability to remove LDL-C from the blood.
-
-The ORION trials have also demonstrated that inclisiran is well-tolerated, with a safety profile comparable to placebo. Common side effects include mild to moderate injection-site reactions, but serious adverse events are rare.
-
-In summary, inclisiran offers a promising new treatment for hypercholesterolemia by harnessing the power of siRNA technology to inhibit PCSK9 at the mRNA level. This innovative approach not only matches the LDL-C lowering efficacy of monoclonal antibodies but also offers the added benefits of less frequent dosing and improved patient adherence, marking a significant advancement in the management of cardiovascular risk (German et al).
-
-## Novartis and Leqvio
-
-Leqvio is owned by Novartis, a leading global healthcare company that is dedicated to improving patient outcomes through innovative medical solutions. Novartis has been at the forefront of cardiovascular disease research and treatment, consistently developing groundbreaking therapies to address some of the most pressing health challenges. Their commitment to scientific excellence and patient care is evident in their extensive portfolio of cardiovascular drugs and their continuous efforts to advance medical knowledge and treatment options in this critical area.
+I am a Novartis employee. The views and opinions expressed in this blog post are solely my own and do not reflect the official policy or position of Novartis or any of its affiliates. The content provided here is based on peer-reviewed papers and is for informational purposes only. It should not be considered as medical, legal, or professional advice.
 
 ## Author's Note
 
-In this article, I've looked into the realm of cardiovascular disease, with a spotlight on atherosclerosis and the innovative approach of PCSK9 inhibition. The insights presented are grounded in scientific studies and publicly accessible datasets. This is the result of the collective efforts of many, from public institutions to Novartis, and it reflects the dedication of these individuals to develop and bring efficacious drugs to the market for the benefit of all patients. Your feedback and thoughts are immensely appreciated. For further details or to get in touch with me, please visit my [personal page](https://andreagrioni.github.io).
+In this article, I’ve looked into the realm of cardiovascular disease, with a spotlight on atherosclerosis and the innovative approach of PCSK9 inhibition. The insights presented are grounded in scientific studies and publicly accessible datasets. This is the result of the collective efforts of many, from public institutions to private companies, and it reflects the dedication of these individuals to develop and bring efficacious drugs to the market for the benefit of all patients. Your feedback and thoughts are immensely appreciated. For further details or to get in touch with me, please visit my [personal page](https://andreagrioni.github.io).
 
 ## References and Literature
 
