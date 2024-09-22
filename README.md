@@ -1,5 +1,9 @@
 # ag-codestories
 
+20240922
+
+[Driven by Curiosity: Why I Chose a Job Rotation into Clinical Trial Development](./vignettes/AG011_Driven_by_Curiosity.md)
+
 20240519
 
 [Introduction to Atherosclerosis and PCSK9 Inhibitor Leqvio](./vignettes/AG010_intro_atherosclerosis_leqvio.md)
