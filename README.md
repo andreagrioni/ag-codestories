@@ -1,5 +1,8 @@
 # ag-codestories
 
+20240929
+[Automation, Data Science, and Generative AI: Supercharging Data Quality in Clinical Trials](./vignettes/AG012_DS_AI_Aut_clinical_trials.md)
+
 20240922
 
 [Driven by Curiosity: Why I Chose a Job Rotation into Clinical Trial Development](./vignettes/AG011_Driven_by_Curiosity.md)
