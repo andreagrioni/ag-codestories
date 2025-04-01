@@ -1,5 +1,9 @@
 # ag-codestories
 
+20250401
+
+[Career Reflections: Lessons from My FIR 2025 Talk](./vignettes/AG013_FIR_presentation.md)
+
 20240929
 
 [Automation, Data Science, and Generative AI: Supercharging Data Quality in Clinical Trials](./vignettes/AG012_DS_AI_Aut_clinical_trials.md)
