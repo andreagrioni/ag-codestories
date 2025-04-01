@@ -1,4 +1,6 @@
-# Introduction
+# From Academia to Pharma: What I Learned, What I Wish I Knew, and How You Can Succeed
+
+## Introduction
 
 Three weeks ago, I had the privilege of speaking at the [Faces of Industrial Research (FIR)](https://facesofindustrialresearch.com/) conference—a unique event that offers life-science students a glimpse into industrial research at Swiss biotech companies. The conference aims to bridge the gap between academia and industry by bringing together scientists from various sectors to showcase their projects and share inspiring career journeys.
 
