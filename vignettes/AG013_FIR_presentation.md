@@ -1,14 +1,12 @@
 # Introduction
 
-Three weeks ago, I had the privilege of speaking at the Faces of Industrial Research (FIR) conference—a unique event that offers life-science students a glimpse into industrial research at Swiss biotech companies. The conference aims to bridge the gap between academia and industry by bringing together scientists from various sectors to showcase their projects and share inspiring career journeys.
+Three weeks ago, I had the privilege of speaking at the [Faces of Industrial Research (FIR)](https://facesofindustrialresearch.com/) conference—a unique event that offers life-science students a glimpse into industrial research at Swiss biotech companies. The conference aims to bridge the gap between academia and industry by bringing together scientists from various sectors to showcase their projects and share inspiring career journeys.
 
 My talk focused on how life-science students can successfully transition into industry roles. I covered strategies for applying to industry positions, what to expect during the transition, and how to navigate the associated challenges.
 
 The experience was deeply moving. Seeing the enthusiasm on the students’ faces reminded me why I’m so passionate about the pharma journey. The event’s energy rekindled my enthusiasm for our work in the industry, leaving me truly inspired.
 
 ## Slide 1: How I Got to Novartis
-
-![](./img/ag013_img001.jpeg)
 
 ### Timing for the Application
 
@@ -20,7 +18,9 @@ After that, I participated in one-on-one conversations with various team members
 
 The final stage involved a presentation to the entire team. In the first half, I showcased my PhD project; in the second half, I tackled a project challenge by developing a study plan and analysis strategy to discover genetic markers for Parkinson's disease.
 
-After more than a month, I received a job offer from Novartis, marking the end of a thorough yet rewarding process.
+After about a month, I received a job offer from Novartis, marking the end of a thorough yet rewarding process.
+
+![](./img/ag013_img001.jpeg)
 
 ### Key Takeaways for Students
 
@@ -145,4 +145,4 @@ If you find this advice useful, **I’m happy to help**—whether through a brie
 
 **Feel free to reach out, and thank you for your time!**
 
-*— Andrea*
+*— Andrea* | [LinkedIn](https://www.linkedin.com/in/agrioni/) | [Personal Page](https://andreagrioni.github.io/)
